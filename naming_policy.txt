@@ -1,0 +1,12 @@
+in classes : 
+    self.smth
+    smt first name must pascal case
+    example : Username 
+    def func 
+    func must be pascal case 
+    example ChangeUsername 
+    def func (self , param1 , param2) 
+    param1 nad param2 must be snake case 
+hard codes variables : snake case 
+func : pascal case 
+funcs variables : pascal case 
