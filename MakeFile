@@ -1,2 +1,4 @@
 test : 
 	python func_test.py
+run : 
+	python ping_pong.py
