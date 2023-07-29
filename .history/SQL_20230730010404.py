@@ -13,9 +13,8 @@ def CreateTables () :
         cur=conn.cursor () 
     except Error as e :
         print (e)
-    cur.execute ("CREATE TABLE IF NOT EXISTS players (playe_rname TEXT , username TEXT , player_lastname TEXT, player_password TEXT , rating INT )")
+    cur.execute ("CREATE TABLE IF NOT EXISTS players (playe_rname TEXT , username TEXT , player_lastname TEXT, player_passwrd TEXT , rating INT )")
     conn.commit ()
-
 def AddPlayer (player : pg.player) : 
     try : 
         cur=conn.cursor () 
@@ -23,7 +22,6 @@ def AddPlayer (player : pg.player) :
         print (e)
     cur.execute("""INSERT INTO players VALUES ('{}' , '{}' , '{}' , '{}' , {})""".format(player.Name , player.UserName , player.LastName , player.Password , player.Rating))
     conn.commit ()
-
 def ChangePlyaerAttributes ( Field , Username , NewField) : 
     try : 
         cur=conn.cursor () 

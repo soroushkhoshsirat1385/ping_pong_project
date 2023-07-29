@@ -7,16 +7,16 @@ class player :
         self.Rating = rating 
         self.LastName = last_name
         self.Password = password
-        sql.AddPlayer(self) 
+        AddPlayer(self) 
     def RemovePlayer (self) : 
         pass 
     def ChangeUsername (self , new_username):
-        sql.ChangePlyaerAttributes("username" , self.UserName , new_username)
+        ChangePlyaerAttributes("username" , self.UserName , new_username)
         self.UserName = new_username
     def ChangePassword (self , new_password) : 
-        sql.ChangePlyaerAttributes("player_passwrd" , self.UserName , new_password) 
+        ChangePlyaerAttributes("player_passwrd" , self.UserName , new_password) 
 
 def main () : 
-    sql.CreateTables()
+    pass
 if __name__=='__main__' :  
     main () 

@@ -1,4 +1,4 @@
-import SQL as sql 
+import SQ
 
 class player :
     def __init__(self , user_name : str, name :str, rating :int , last_name :str , password :str) :
@@ -7,16 +7,16 @@ class player :
         self.Rating = rating 
         self.LastName = last_name
         self.Password = password
-        sql.AddPlayer(self) 
+        AddPlayer(self) 
     def RemovePlayer (self) : 
         pass 
     def ChangeUsername (self , new_username):
-        sql.ChangePlyaerAttributes("username" , self.UserName , new_username)
+        ChangePlyaerAttributes("username" , self.UserName , new_username)
         self.UserName = new_username
     def ChangePassword (self , new_password) : 
-        sql.ChangePlyaerAttributes("player_passwrd" , self.UserName , new_password) 
+        ChangePlyaerAttributes("player_passwrd" , self.UserName , new_password) 
 
 def main () : 
-    sql.CreateTables()
+    pass
 if __name__=='__main__' :  
     main () 

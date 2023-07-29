@@ -14,9 +14,9 @@ class player :
         sql.ChangePlyaerAttributes("username" , self.UserName , new_username)
         self.UserName = new_username
     def ChangePassword (self , new_password) : 
-        sql.ChangePlyaerAttributes("player_passwrd" , self.UserName , new_password) 
+        ChangePlyaerAttributes("player_passwrd" , self.UserName , new_password) 
 
 def main () : 
-    sql.CreateTables()
+    pass
 if __name__=='__main__' :  
     main () 

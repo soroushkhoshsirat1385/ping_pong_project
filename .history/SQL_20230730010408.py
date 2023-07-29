@@ -13,7 +13,7 @@ def CreateTables () :
         cur=conn.cursor () 
     except Error as e :
         print (e)
-    cur.execute ("CREATE TABLE IF NOT EXISTS players (playe_rname TEXT , username TEXT , player_lastname TEXT, player_password TEXT , rating INT )")
+    cur.execute ("CREATE TABLE IF NOT EXISTS players (playe_rname TEXT , username TEXT , player_lastname TEXT, player_passwrd TEXT , rating INT )")
     conn.commit ()
 
 def AddPlayer (player : pg.player) : 
