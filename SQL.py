@@ -4,13 +4,44 @@ from sqlite3 import Error
 import uuid 
 import datetime
 import consts as consts
+from dataclasses import dataclass
+@dataclass
+class player :
+    player_name : str
+    username : str
+    lastname : str 
+    password : str
+    rating : int 
+@dataclass
+class game : 
+    player1username : str 
+    player2username : str
+    game_start_time : str 
+    score :str 
+    game_ID : int 
+@dataclass
+class config : 
+    game_id : str 
+    rounds : int
+    PPR : int 
+    TPG : int 
+    TOD : int 
 try:
     conn = sqlite3.connect("ping_pong.db")
     print(sqlite3.version)
 except Error as e:
     print(e) 
-def ReturnConfigByID (ID) : 
-    pass
+def ReturnConfigByID (ID) -> config: 
+    try : 
+        cur=conn.cursor () 
+    except Error as e :
+        print (e)
+    configs: list[config] = cur.execute("SELECT * FROM configs WHERE game_id = '{}'".format(ID)).fetchall()
+    print (configs)
+    for row in configs:
+        config1 : config = config(*row)
+        print(config1.game_id)
+    return configs
 def CreateTables () : 
     try : 
         cur=conn.cursor () 
@@ -58,12 +89,12 @@ def AddGame (game:pg.game) :
     print ("added a new game")
     AddConfig (game , ID)
     return ID 
-def ChangePlyaerAttributes ( Field , Username , NewField) : 
+def ChangePlyaerAttributes ( Field , UserName , NewField) : 
     try : 
         cur=conn.cursor () 
     except Error as e :
         print (e)
-    cur.execute("UPDATE players SET '{}' = '{}' WHERE username = '{}'" .format(Field , NewField , Username))
+    cur.execute("UPDATE players SET '{}' = '{}' WHERE UserName = '{}'" .format(Field , NewField , UserName))
     conn.commit ()
 def main () : 
     CreateTables ()
